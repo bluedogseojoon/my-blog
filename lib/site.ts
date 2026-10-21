@@ -17,6 +17,18 @@ export const affiliate = {
   naverNotice: "이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.",
 };
 
+// 사이트가 하위 폴더 주소(예: github.io/my-blog)에 올라갈 때 쓰는 앞부분 주소예요.
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+// 이미지처럼 public 폴더에 있는 파일 주소 앞에 basePath를 붙여요.
+export const withBase = (p: string) => (p.startsWith("/") ? basePath + p : p);
+
+// 검색엔진에 알려 줄 전체 주소를 만들어요. GitHub Pages에서는 주소 끝에 "/"가 붙어요.
+export const pageUrl = (p: string) => {
+  const slash = process.env.STATIC_EXPORT === "1" && !p.endsWith("/") ? "/" : "";
+  return `${site.url}${p}${slash}`;
+};
+
 export type Category = {
   slug: string;
   name: string;

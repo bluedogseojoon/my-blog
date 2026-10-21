@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost, getRelatedPosts, formatDate } from "@/lib/content";
-import { affiliate, getCategory, site } from "@/lib/site";
+import { affiliate, getCategory, pageUrl, site, withBase } from "@/lib/site";
 import PostCard from "../../PostCard";
 import ProductBox from "../../ProductBox";
 
@@ -40,7 +40,7 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
   const cat = getCategory(post.category);
   const related = getRelatedPosts(post);
-  const url = `${site.url}/posts/${post.slug}`;
+  const url = pageUrl(`/posts/${post.slug}`);
   const stores = new Set(post.products.map((p) => p.store));
 
   // 구글이 글 정보를 정확히 이해하도록 돕는 구조화 데이터(JSON-LD)예요.
@@ -101,7 +101,7 @@ export default async function PostPage({ params }: Props) {
           </p>
 
           {post.cover && (
-            <img className="post-cover" src={post.cover} alt={post.title} width={1200} height={630} />
+            <img className="post-cover" src={withBase(post.cover)} alt={post.title} width={1200} height={630} />
           )}
 
           {stores.size > 0 && (

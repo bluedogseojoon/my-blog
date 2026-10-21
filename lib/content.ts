@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { Marked } from "marked";
+import { basePath } from "./site";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
 const PAGES_DIR = path.join(process.cwd(), "content/pages");
@@ -86,7 +87,9 @@ function render(markdown: string) {
       },
     },
   });
-  const html = md.parse(markdown, { async: false }) as string;
+  const html = (md.parse(markdown, { async: false }) as string)
+    // 본문 속 "/posts/..." 같은 내부 주소와 이미지 주소에도 basePath를 붙여요.
+    .replace(/(src|href)="\/(?!\/)/g, `$1="${basePath}/`);
   return { html, headings };
 }
 
