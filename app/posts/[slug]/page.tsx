@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost, getRelatedPosts, formatDate } from "@/lib/content";
-import { getCategory, site } from "@/lib/site";
+import { affiliate, getCategory, pageUrl, site, withBase } from "@/lib/site";
 import PostCard from "../../PostCard";
+import ProductBox from "../../ProductBox";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -39,7 +40,8 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
   const cat = getCategory(post.category);
   const related = getRelatedPosts(post);
-  const url = `${site.url}/posts/${post.slug}`;
+  const url = pageUrl(`/posts/${post.slug}`);
+  const stores = new Set(post.products.map((p) => p.store));
 
   // 구글이 글 정보를 정확히 이해하도록 돕는 구조화 데이터(JSON-LD)예요.
   const jsonLd = [
@@ -98,6 +100,17 @@ export default async function PostPage({ params }: Props) {
             {post.readingMinutes}분 읽기
           </p>
 
+          {post.cover && (
+            <img className="post-cover" src={withBase(post.cover)} alt={post.title} width={1200} height={630} />
+          )}
+
+          {stores.size > 0 && (
+            <p className="ad-notice">
+              {stores.has("coupang") && <>{affiliate.coupangNotice} </>}
+              {stores.has("naver") && affiliate.naverNotice}
+            </p>
+          )}
+
           {post.summary.length > 0 && (
             <aside className="summary-box">
               <p className="summary-title">결론부터 볼게요</p>
@@ -117,6 +130,8 @@ export default async function PostPage({ params }: Props) {
           )}
 
           <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+
+          {post.products.length > 0 && <ProductBox products={post.products} />}
 
           {post.faq.length > 0 && (
             <section className="faq">

@@ -37,7 +37,20 @@ faq:
 본문...
 ```
 
-3. GitHub에 올리면 Vercel이 자동으로 사이트를 새로 만들어요.
+3. (선택) 쿠팡파트너스, 네이버 커넥트 상품을 넣고 싶으면 머리말에 `products`를 추가해요. 넣으면 글 맨 위에 광고 안내 문구가 자동으로 붙고, 본문 아래에 상품 상자가 생겨요.
+
+```yaml
+products:
+  - name: "기내 반입 접이식 휴대용 유모차"
+    note: "한 줄 설명 (선택)"
+    price: "15만원대"          # 선택
+    url: "https://link.coupang.com/a/xxxx"   # 쿠팡파트너스에서 만든 내 링크
+    store: coupang            # coupang 또는 naver
+```
+
+`url`을 비워 두면 임시로 쿠팡 검색 결과로 연결돼요. **수익이 생기려면 꼭 파트너스에서 만든 내 링크로 바꿔 주세요.**
+
+4. GitHub에 올리면 Vercel이 자동으로 사이트를 새로 만들어요.
 
 ## 이미 들어 있는 SEO 기능
 
@@ -55,6 +68,14 @@ npm run dev
 ```
 
 브라우저에서 http://localhost:3000 을 열면 돼요.
+
+## 사이트 주소 (GitHub Pages)
+
+`main` 브랜치에 글이 올라가면 GitHub가 자동으로 사이트를 새로 만들어 올려요.
+
+- 주소: https://bluedogseojoon.github.io/my-blog/
+- 처음 한 번만: 저장소 **Settings → Pages → Source**를 **GitHub Actions**로 바꿔 주세요.
+- 진행 상황은 저장소의 **Actions** 탭에서 볼 수 있어요.
 
 ## 배포 후 꼭 할 일
 

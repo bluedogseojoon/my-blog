@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCategory } from "@/lib/site";
+import { getCategory, withBase } from "@/lib/site";
 import { formatDate, type Post } from "@/lib/content";
 
 export default function PostCard({ post, large = false }: { post: Post; large?: boolean }) {
@@ -8,7 +8,7 @@ export default function PostCard({ post, large = false }: { post: Post; large?: 
     <article className={large ? "card card-large" : "card"}>
       <Link href={`/posts/${post.slug}`} className="card-link">
         <div className={`card-cover cover-${post.category}`} aria-hidden>
-          {post.cover ? <img src={post.cover} alt="" loading="lazy" /> : <span className="cover-icon">{cat?.icon}</span>}
+          {post.cover ? <img src={withBase(post.cover)} alt="" loading="lazy" /> : <span className="cover-icon">{cat?.icon}</span>}
         </div>
         <div className="card-body">
           {cat && <span className="badge">{cat.name}</span>}

@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { Marked } from "marked";
+import { basePath } from "./site";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
 const PAGES_DIR = path.join(process.cwd(), "content/pages");
@@ -12,6 +13,15 @@ const PAGES_DIR = path.join(process.cwd(), "content/pages");
 export type Heading = { id: string; text: string; level: number };
 
 export type FAQ = { q: string; a: string };
+
+// 쿠팡파트너스, 네이버 커넥트 상품 하나. url을 비워 두면 쿠팡 검색 페이지로 연결돼요.
+export type Product = {
+  name: string;
+  note?: string;
+  price?: string;
+  url?: string;
+  store: "coupang" | "naver";
+};
 
 export type Post = {
   slug: string;
@@ -24,6 +34,7 @@ export type Post = {
   cover?: string;
   summary: string[];
   faq: FAQ[];
+  products: Product[];
   html: string;
   headings: Heading[];
   readingMinutes: number;
@@ -76,7 +87,9 @@ function render(markdown: string) {
       },
     },
   });
-  const html = md.parse(markdown, { async: false }) as string;
+  const html = (md.parse(markdown, { async: false }) as string)
+    // 본문 속 "/posts/..." 같은 내부 주소와 이미지 주소에도 basePath를 붙여요.
+    .replace(/(src|href)="\/(?!\/)/g, `$1="${basePath}/`);
   return { html, headings };
 }
 
@@ -101,6 +114,7 @@ function readPostFile(file: string): Post {
     cover: data.cover,
     summary: data.summary ?? [],
     faq: data.faq ?? [],
+    products: (data.products ?? []).map((p: Product) => ({ ...p, store: p.store ?? "coupang" })),
     html,
     headings,
     readingMinutes: Math.max(1, Math.round(chars / 500)),
