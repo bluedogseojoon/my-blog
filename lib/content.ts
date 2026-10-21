@@ -1,0 +1,143 @@
+// content 폴더의 마크다운(.md) 파일을 읽어서 글과 페이지로 바꿔 주는 코드예요.
+// 새 글을 올리려면 content/posts 폴더에 .md 파일 하나만 추가하면 돼요.
+
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+import { Marked } from "marked";
+
+const POSTS_DIR = path.join(process.cwd(), "content/posts");
+const PAGES_DIR = path.join(process.cwd(), "content/pages");
+
+export type Heading = { id: string; text: string; level: number };
+
+export type FAQ = { q: string; a: string };
+
+export type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  tags: string[];
+  date: string;
+  updated?: string;
+  cover?: string;
+  summary: string[];
+  faq: FAQ[];
+  html: string;
+  headings: Heading[];
+  readingMinutes: number;
+};
+
+export type Page = { slug: string; title: string; description: string; html: string };
+
+function slugifyHeading(text: string, used: Map<string, number>) {
+  const base =
+    text
+      .toLowerCase()
+      .replace(/<[^>]+>/g, "")
+      .replace(/[^\p{L}\p{N}\s-]/gu, "")
+      .trim()
+      .replace(/\s+/g, "-") || "section";
+  const n = used.get(base) ?? 0;
+  used.set(base, n + 1);
+  return n ? `${base}-${n}` : base;
+}
+
+// 마크다운을 HTML로 바꾸면서, 목차(h2, h3)도 같이 뽑아요.
+function render(markdown: string) {
+  const headings: Heading[] = [];
+  const used = new Map<string, number>();
+  const md = new Marked();
+  md.use({
+    renderer: {
+      heading({ tokens, depth }) {
+        const text = this.parser.parseInline(tokens);
+        const id = slugifyHeading(text, used);
+        if (depth === 2 || depth === 3) headings.push({ id, text: text.replace(/<[^>]+>/g, ""), level: depth });
+        return `<h${depth} id="${id}">${text}</h${depth}>\n`;
+      },
+      table(token) {
+        const head = token.header.map((c) => `<th>${this.parser.parseInline(c.tokens)}</th>`).join("");
+        const rows = token.rows
+          .map((r) => `<tr>${r.map((c) => `<td>${this.parser.parseInline(c.tokens)}</td>`).join("")}</tr>`)
+          .join("");
+        return `<div class="table-wrap"><table><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>\n`;
+      },
+    },
+  });
+  const html = md.parse(markdown, { async: false }) as string;
+  return { html, headings };
+}
+
+function readPostFile(file: string): Post {
+  const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
+  const { data, content } = matter(raw);
+  const { html, headings } = render(content);
+  const chars = content.replace(/\s/g, "").length;
+  return {
+    slug: file.replace(/\.md$/, ""),
+    title: data.title,
+    description: data.description ?? "",
+    category: data.category,
+    tags: data.tags ?? [],
+    date: String(data.date),
+    updated: data.updated ? String(data.updated) : undefined,
+    cover: data.cover,
+    summary: data.summary ?? [],
+    faq: data.faq ?? [],
+    html,
+    headings,
+    readingMinutes: Math.max(1, Math.round(chars / 500)),
+  };
+}
+
+export function getAllPosts(): Post[] {
+  if (!fs.existsSync(POSTS_DIR)) return [];
+  return fs
+    .readdirSync(POSTS_DIR)
+    .filter((f) => f.endsWith(".md"))
+    .map(readPostFile)
+    .filter((p) => new Date(p.date) <= new Date()) // 날짜가 미래인 글은 예약 글로 보고 숨겨요
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export function getPost(slug: string) {
+  return getAllPosts().find((p) => p.slug === slug);
+}
+
+export function getPostsByCategory(category: string) {
+  return getAllPosts().filter((p) => p.category === category);
+}
+
+export function getRelatedPosts(post: Post, limit = 3) {
+  const others = getAllPosts().filter((p) => p.slug !== post.slug);
+  const score = (p: Post) =>
+    (p.category === post.category ? 2 : 0) + p.tags.filter((t) => post.tags.includes(t)).length;
+  return others.sort((a, b) => score(b) - score(a)).slice(0, limit);
+}
+
+export function getAllPages(): Page[] {
+  if (!fs.existsSync(PAGES_DIR)) return [];
+  return fs
+    .readdirSync(PAGES_DIR)
+    .filter((f) => f.endsWith(".md"))
+    .map((file) => {
+      const { data, content } = matter(fs.readFileSync(path.join(PAGES_DIR, file), "utf8"));
+      return {
+        slug: file.replace(/\.md$/, ""),
+        title: data.title,
+        description: data.description ?? "",
+        html: render(content).html,
+      };
+    });
+}
+
+export function getPage(slug: string) {
+  return getAllPages().find((p) => p.slug === slug);
+}
+
+export function formatDate(d: string) {
+  const date = new Date(d);
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}.`;
+}
