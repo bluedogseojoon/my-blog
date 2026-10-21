@@ -15,14 +15,15 @@ export type Category = {
   slug: string;
   name: string;
   description: string;
+  icon: string;
 };
 
 export const categories: Category[] = [
-  { slug: "travel", name: "여행", description: "국내외 여행 준비물, 코스, 아이와 함께하는 여행 팁" },
-  { slug: "parenting", name: "육아", description: "신생아부터 유아까지, 엄마가 직접 겪으며 정리한 육아 정보" },
-  { slug: "digital", name: "디지털 꿀팁", description: "스마트폰, 앱, 사진 정리처럼 매일 쓰는 디지털 생활 팁" },
-  { slug: "life", name: "생활 정보", description: "살림, 정부 지원금, 알아 두면 돈 아끼는 생활 정보" },
-  { slug: "money", name: "돈 공부", description: "온라인 부업, 절약, 경제적 자유를 위한 돈 공부 기록" },
+  { slug: "travel", icon: "✈️", name: "여행", description: "국내외 여행 준비물, 코스, 아이와 함께하는 여행 팁" },
+  { slug: "parenting", icon: "👶", name: "육아", description: "신생아부터 유아까지, 엄마가 직접 겪으며 정리한 육아 정보" },
+  { slug: "digital", icon: "📱", name: "디지털 꿀팁", description: "스마트폰, 앱, 사진 정리처럼 매일 쓰는 디지털 생활 팁" },
+  { slug: "life", icon: "🏠", name: "생활 정보", description: "살림, 정부 지원금, 알아 두면 돈 아끼는 생활 정보" },
+  { slug: "money", icon: "💰", name: "돈 공부", description: "온라인 부업, 절약, 경제적 자유를 위한 돈 공부 기록" },
 ];
 
 export function getCategory(slug: string) {

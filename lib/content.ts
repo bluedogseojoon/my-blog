@@ -31,6 +31,15 @@ export type Post = {
 
 export type Page = { slug: string; title: string; description: string; html: string };
 
+function decodeEntities(s: string) {
+  return s
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+}
+
 function slugifyHeading(text: string, used: Map<string, number>) {
   const base =
     text
@@ -53,8 +62,9 @@ function render(markdown: string) {
     renderer: {
       heading({ tokens, depth }) {
         const text = this.parser.parseInline(tokens);
-        const id = slugifyHeading(text, used);
-        if (depth === 2 || depth === 3) headings.push({ id, text: text.replace(/<[^>]+>/g, ""), level: depth });
+        const plain = decodeEntities(text.replace(/<[^>]+>/g, ""));
+        const id = slugifyHeading(plain, used);
+        if (depth === 2 || depth === 3) headings.push({ id, text: plain, level: depth });
         return `<h${depth} id="${id}">${text}</h${depth}>\n`;
       },
       table(token) {
@@ -70,6 +80,11 @@ function render(markdown: string) {
   return { html, headings };
 }
 
+// 글 머리말의 날짜(2026-10-21)를 항상 같은 형식의 글자로 맞춰요.
+function toISODate(value: unknown) {
+  return value instanceof Date ? value.toISOString().slice(0, 10) : String(value);
+}
+
 function readPostFile(file: string): Post {
   const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
   const { data, content } = matter(raw);
@@ -81,8 +96,8 @@ function readPostFile(file: string): Post {
     description: data.description ?? "",
     category: data.category,
     tags: data.tags ?? [],
-    date: String(data.date),
-    updated: data.updated ? String(data.updated) : undefined,
+    date: toISODate(data.date),
+    updated: data.updated ? toISODate(data.updated) : undefined,
     cover: data.cover,
     summary: data.summary ?? [],
     faq: data.faq ?? [],
