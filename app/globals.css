@@ -183,3 +183,20 @@ img { max-width: 100%; height: auto; display: block; }
   .stack .card-link { flex-direction: column; }
   .stack .card-cover { width: 100%; aspect-ratio: 16 / 9; }
 }
+
+/* 제휴 안내 문구와 추천 상품 상자 */
+.ad-notice { font-size: 13px; color: var(--muted); background: var(--bg-soft); border-radius: 10px; padding: 10px 14px; margin: 16px 0 0; }
+.products { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin: 36px 0; }
+.products h2 { font-size: 19px; margin: 0 0 12px; }
+.products ul { list-style: none; margin: 0; padding: 0; }
+.product { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.product:first-child { border-top: 0; }
+.product-name { font-weight: 600; margin: 0; }
+.product-note { font-size: 14px; color: var(--muted); margin: 2px 0 0; }
+.product-btn { flex-shrink: 0; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px; color: #fff; white-space: nowrap; }
+.store-coupang { background: #e5332a; }
+.store-naver { background: #03a94d; }
+@media (max-width: 560px) {
+  .product { flex-direction: column; align-items: stretch; }
+  .product-btn { text-align: center; }
+}

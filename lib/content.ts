@@ -13,6 +13,15 @@ export type Heading = { id: string; text: string; level: number };
 
 export type FAQ = { q: string; a: string };
 
+// 쿠팡파트너스, 네이버 커넥트 상품 하나. url을 비워 두면 쿠팡 검색 페이지로 연결돼요.
+export type Product = {
+  name: string;
+  note?: string;
+  price?: string;
+  url?: string;
+  store: "coupang" | "naver";
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -24,6 +33,7 @@ export type Post = {
   cover?: string;
   summary: string[];
   faq: FAQ[];
+  products: Product[];
   html: string;
   headings: Heading[];
   readingMinutes: number;
@@ -101,6 +111,7 @@ function readPostFile(file: string): Post {
     cover: data.cover,
     summary: data.summary ?? [],
     faq: data.faq ?? [],
+    products: (data.products ?? []).map((p: Product) => ({ ...p, store: p.store ?? "coupang" })),
     html,
     headings,
     readingMinutes: Math.max(1, Math.round(chars / 500)),

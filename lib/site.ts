@@ -11,6 +11,12 @@ export const site = {
   locale: "ko_KR",
 };
 
+// 제휴 링크가 있는 글 맨 위에 자동으로 붙는 안내 문구예요. (쿠팡파트너스 필수 문구)
+export const affiliate = {
+  coupangNotice: "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+  naverNotice: "이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.",
+};
+
 export type Category = {
   slug: string;
   name: string;
