@@ -100,6 +100,10 @@ export default async function PostPage({ params }: Props) {
             {post.readingMinutes}분 읽기
           </p>
 
+          {post.cover && (
+            <img className="post-cover" src={post.cover} alt={post.title} width={1200} height={630} />
+          )}
+
           {stores.size > 0 && (
             <p className="ad-notice">
               {stores.has("coupang") && <>{affiliate.coupangNotice} </>}

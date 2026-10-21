@@ -3,6 +3,7 @@ title: "아기랑 첫 해외여행 준비물 체크리스트, 돌 전후 아기 
 description: "돌 전후 아기와 처음 해외여행을 간다면 무엇을 챙겨야 할까요? 기내용, 숙소용, 외출용으로 나눠 빠짐없이 챙기는 준비물 목록과 짐 줄이는 요령을 정리했어요."
 category: travel
 tags: [아기여행, 해외여행준비물, 돌아기, 기내준비물, 육아여행]
+cover: /images/posts/baby-first-overseas-trip-checklist/cover.jpg
 date: 2026-10-14
 summary:
   - "준비물은 기내 가방, 숙소 캐리어, 외출 가방 세 개로 나눠 싸면 빠지는 게 없어요."
@@ -47,6 +48,8 @@ products:
 | 소아과 상담 | 상비약, 예방접종 일정 | 출발 2주 전 |
 
 > 숙소에 아기침대(크립)를 미리 요청해 두면 휴대용 침대를 안 가져가도 돼서 짐이 확 줄어요.
+
+![아기 해외여행 짐을 기내 가방, 숙소 캐리어, 외출 가방 3개로 나눠 싸는 준비물 체크리스트](/images/posts/baby-first-overseas-trip-checklist/bags.png)
 
 ## 1단계: 기내 가방 준비물
 

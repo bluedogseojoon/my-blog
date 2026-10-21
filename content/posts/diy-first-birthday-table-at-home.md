@@ -3,6 +3,7 @@ title: "돌잔치 대신 집에서 셀프 돌상 차리기, 준비물부터 순�
 description: "큰 돌잔치 대신 가족끼리 집에서 돌상을 차리고 싶다면? 꼭 필요한 준비물, 대여와 구매 비교, 하루 전과 당일 순서, 돌잡이 진행 팁까지 단계별로 정리했어요."
 category: parenting
 tags: [셀프돌상, 돌잔치, 돌잡이, 첫생일, 가족행사]
+cover: /images/posts/diy-first-birthday-table-at-home/cover.jpg
 date: 2026-10-17
 summary:
   - "셀프 돌상은 상차림 세트 대여 + 떡과 과일 주문 + 사진 촬영, 이 세 가지만 해결하면 돼요."
@@ -45,6 +46,8 @@ products:
 | 아기 옷과 사진 | 한복이나 드레스 준비, 촬영 방법 정하기 | 2주 전 |
 
 > 대여 세트는 주말, 특히 봄과 가을에 예약이 빨리 차요. 날짜가 정해지면 바로 예약하는 게 좋아요.
+
+![셀프 돌상 준비 타임라인: 2~3주 전 상차림 예약, 2주 전 옷과 사진 계획, 1주 전 떡 주문, 당일 진행](/images/posts/diy-first-birthday-table-at-home/timeline.png)
 
 ## 1단계: 2~3주 전, 상차림 세트 고르기
 
