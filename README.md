@@ -69,6 +69,14 @@ npm run dev
 
 브라우저에서 http://localhost:3000 을 열면 돼요.
 
+## 사이트 주소 (GitHub Pages)
+
+`main` 브랜치에 글이 올라가면 GitHub가 자동으로 사이트를 새로 만들어 올려요.
+
+- 주소: https://bluedogseojoon.github.io/my-blog/
+- 처음 한 번만: 저장소 **Settings → Pages → Source**를 **GitHub Actions**로 바꿔 주세요.
+- 진행 상황은 저장소의 **Actions** 탭에서 볼 수 있어요.
+
 ## 배포 후 꼭 할 일
 
 1. Vercel 환경변수에 `NEXT_PUBLIC_SITE_URL` = 실제 주소(예: `https://myblog.vercel.app`)를 넣어요.
