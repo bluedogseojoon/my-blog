@@ -28,6 +28,7 @@ products:
     store: coupang
   - name: "카메라 렌즈 극세사 클리너"
     note: "아기 손자국 묻은 렌즈를 바로 닦아요"
+    url: "https://link.coupang.com/a/h7Zn2QSctE"
     store: coupang
 ---
 
