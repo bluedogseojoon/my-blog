@@ -22,12 +22,15 @@ faq:
 products:
   - name: "돌잡이 세트"
     note: "연필, 실, 판사봉 등 기본 구성"
+    url: "https://link.coupang.com/a/h7ZzeN8QoK"
     store: coupang
   - name: "돌상 테이블 매트 가랜드 세트"
     note: "벽 장식까지 한 번에 해결"
+    url: "https://link.coupang.com/a/h7ZBwtqqFo"
     store: coupang
   - name: "스마트폰 삼각대 리모컨"
     note: "가족 단체 사진 찍을 때 필수"
+    url: "https://link.coupang.com/a/h7ZEv7EG7w"
     store: coupang
 ---
 

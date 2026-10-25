@@ -22,9 +22,11 @@ faq:
 products:
   - name: "아이폰 C타입 OTG USB 메모리"
     note: "사진과 영상을 바로 옮겨 담을 수 있어요"
+    url: "https://link.coupang.com/a/h7ZQ6M7ODs"
     store: coupang
   - name: "외장 SSD 1TB"
     note: "연도별 사진 백업용으로 넉넉해요"
+    url: "https://link.coupang.com/a/h7ZUjMiiXc"
     store: coupang
 ---
 

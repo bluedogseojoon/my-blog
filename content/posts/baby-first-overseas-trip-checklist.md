@@ -22,12 +22,11 @@ faq:
 products:
   - name: "기내 반입 접이식 휴대용 유모차"
     note: "한 손으로 접히고 기내 선반에 들어가는 크기"
+    url: "https://link.coupang.com/a/h7ZLOmaDqS"
     store: coupang
   - name: "아기 분유 소분 케이스"
     note: "한 번 먹을 양씩 나눠 담아 기내에서 편해요"
-    store: coupang
-  - name: "휴대용 아기 체온계"
-    note: "상비약 파우치에 꼭 넣어 두세요"
+    url: "https://link.coupang.com/a/h7Zuyalkpo"
     store: coupang
 ---
 

@@ -22,9 +22,11 @@ faq:
 products:
   - name: "스마트폰 블루투스 리모컨 삼각대"
     note: "멀리서 버튼만 눌러 가족 사진, 셀카봉 겸용"
+    url: "https://link.coupang.com/a/h7ZEv7EG7w"
     store: coupang
   - name: "스마트폰 클립형 LED 조명"
     note: "흐린 날, 저녁 실내에서 얼굴을 밝게"
+    url: "https://link.coupang.com/a/h7ZH0dxizA"
     store: coupang
   - name: "카메라 렌즈 극세사 클리너"
     note: "아기 손자국 묻은 렌즈를 바로 닦아요"
