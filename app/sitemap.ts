@@ -10,7 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: pageUrl("/"), lastModified: posts[0]?.date, changeFrequency: "daily", priority: 1 },
     { url: pageUrl("/posts"), changeFrequency: "daily", priority: 0.8 },
-    ...categories.map((c) => ({ url: pageUrl(`/category/${c.slug}`), changeFrequency: "weekly" as const, priority: 0.7 })),
+    ...categories
+      .filter((c) => posts.some((p) => p.category === c.slug)) // 글이 없는 빈 카테고리는 빼요
+      .map((c) => ({ url: pageUrl(`/category/${c.slug}`), changeFrequency: "weekly" as const, priority: 0.7 })),
     ...posts.map((p) => ({ url: pageUrl(`/posts/${p.slug}`), lastModified: p.updated ?? p.date, priority: 0.9 })),
     ...getAllPages().map((p) => ({ url: pageUrl(`/${p.slug}`), priority: 0.3 })),
   ];
