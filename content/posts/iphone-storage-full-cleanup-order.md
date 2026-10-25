@@ -73,6 +73,8 @@ products:
 
 ## 3단계: 안 쓰는 앱 정리하기
 
+![아이폰 앱 정리하기(오프로드), 앱 삭제, 자동 정리 차이](/images/posts/iphone-storage-full-cleanup-order/apps.png)
+
 | 방법 | 하는 일 | 데이터 |
 | --- | --- | --- |
 | 앱 정리하기(오프로드) | 앱 본체만 지움 | 남아 있음 |
@@ -82,6 +84,8 @@ products:
 **추천**: **설정 > 앱 > App Store > 사용하지 않는 앱 정리하기**를 켜 두면, 오래 안 쓴 앱이 알아서 정리돼요. 다시 누르면 바로 설치돼요.
 
 ## 4단계: 사진 지우지 않고 최적화하기
+
+![아이폰 사진 저장 공간 최적화 설정 순서](/images/posts/iphone-storage-full-cleanup-order/optimize.png)
 
 사진을 지우지 않는 핵심 방법이에요.
 

@@ -63,6 +63,8 @@ products:
 
 ### 대여와 구매 비교
 
+![셀프 돌상 세트 대여와 직접 구매 비교](/images/posts/diy-first-birthday-table-at-home/rent-vs-buy.png)
+
 | 구분 | 대여 | 직접 구매 |
 | --- | --- | --- |
 | 장점 | 한 번에 완성된 구성, 보관 걱정 없음 | 원하는 소품만 골라 꾸밀 수 있음 |
@@ -103,6 +105,8 @@ products:
 | 이후 | 식사하고 떡 나누기 |
 
 ### 돌잡이 진행 팁
+
+![돌잡이 진행 팁 4가지](/images/posts/diy-first-birthday-table-at-home/doljabi.png)
 
 - 물건은 **4~6개**가 적당해요. 너무 많으면 아기가 헷갈려 해요.
 - 아기 손이 닿는 거리에 **반원 모양**으로 놓아요.

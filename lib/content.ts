@@ -89,7 +89,9 @@ function render(markdown: string) {
   });
   const html = (md.parse(markdown, { async: false }) as string)
     // 본문 속 "/posts/..." 같은 내부 주소와 이미지 주소에도 basePath를 붙여요.
-    .replace(/(src|href)="\/(?!\/)/g, `$1="${basePath}/`);
+    .replace(/(src|href)="\/(?!\/)/g, `$1="${basePath}/`)
+    // 본문 이미지는 화면에 보일 때 불러와서 페이지가 빨리 열려요.
+    .replace(/<img /g, '<img loading="lazy" ');
   return { html, headings };
 }
 
