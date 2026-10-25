@@ -40,6 +40,8 @@ products:
 
 ## 1. 먼저 바꿔 둘 설정: 격자와 라이브 포토
 
+![아이폰 설정 > 카메라에서 격자와 설정 유지를 켜는 화면](/images/posts/iphone-baby-photo-tips-settings/ios-camera-settings.png)
+
 촬영 전에 한 번만 해 두면 되는 설정이에요.
 
 1. **설정** 앱 > **카메라**로 들어가요.
@@ -55,7 +57,7 @@ products:
 
 ## 2. 움직이는 아기는 연사로 찍기
 
-![아이폰 셔터 버튼 왼쪽으로 끌면 연사, 오른쪽으로 끌면 동영상](/images/posts/iphone-baby-photo-tips-settings/burst.png)
+![아이폰 카메라에서 셔터 버튼을 왼쪽으로 끌어 연사로 찍는 화면](/images/posts/iphone-baby-photo-tips-settings/ios-burst.png)
 
 뒤집기, 기어가기, 걸음마처럼 움직임이 많을 땐 한 장씩 찍으면 거의 흔들려요. 이럴 땐 **연사**가 답이에요.
 
@@ -80,6 +82,8 @@ products:
 창을 등지고 찍으면 아기 얼굴이 까맣게 나와요. 이럴 땐 내가 창 쪽으로 가서 아기와 마주 보고 찍으면 해결돼요.
 
 ## 4. 얼굴이 어두울 때: 초점과 노출 조절
+
+![아이폰 카메라에서 얼굴을 눌러 초점을 맞추고 해 아이콘으로 밝기를 올리는 화면](/images/posts/iphone-baby-photo-tips-settings/ios-exposure.png)
 
 밝기가 애매할 때는 **화면을 직접 눌러서** 조절해요.
 

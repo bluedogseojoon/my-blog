@@ -38,6 +38,8 @@ products:
 
 ## 0단계: 무엇이 공간을 차지하는지 먼저 보기
 
+![아이폰 설정 > 일반 > iPhone 저장 공간 화면: 사진, 메시지, 카카오톡 순으로 용량 확인](/images/posts/iphone-storage-full-cleanup-order/ios-storage.png)
+
 무작정 지우기 전에 원인부터 확인해요.
 
 1. **설정** 앱을 열어요.
@@ -73,7 +75,7 @@ products:
 
 ## 3단계: 안 쓰는 앱 정리하기
 
-![아이폰 앱 정리하기(오프로드), 앱 삭제, 자동 정리 차이](/images/posts/iphone-storage-full-cleanup-order/apps.png)
+![아이폰 설정 > 앱 > App Store에서 사용하지 않는 앱 정리하기 켜는 화면](/images/posts/iphone-storage-full-cleanup-order/ios-offload.png)
 
 | 방법 | 하는 일 | 데이터 |
 | --- | --- | --- |
@@ -85,7 +87,7 @@ products:
 
 ## 4단계: 사진 지우지 않고 최적화하기
 
-![아이폰 사진 저장 공간 최적화 설정 순서](/images/posts/iphone-storage-full-cleanup-order/optimize.png)
+![아이폰 설정 > 사진에서 iCloud 사진과 iPhone 저장 공간 최적화를 켜는 화면](/images/posts/iphone-storage-full-cleanup-order/ios-photos-optimize.png)
 
 사진을 지우지 않는 핵심 방법이에요.
 
