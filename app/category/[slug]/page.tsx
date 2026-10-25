@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { categories, getCategory, site } from "@/lib/site";
 import { getPostsByCategory } from "@/lib/content";
 import PostCard from "../../PostCard";
+import CategoryChips from "../../CategoryChips";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -39,20 +40,16 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <section className="container section">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <nav className="breadcrumb" aria-label="현재 위치">
-        <Link href="/">홈</Link> <span>/</span> 카테고리
-      </nav>
-      <h1 className="page-title">{cat.name}</h1>
-      <p className="muted">{cat.description}</p>
-      <div className="chips">
-        {categories.map((c) => (
-          <Link key={c.slug} href={`/category/${c.slug}`} className={c.slug === cat.slug ? "chip active" : "chip"}>
-            {c.name}
-          </Link>
-        ))}
+      <div className="page-head">
+        <nav className="breadcrumb" aria-label="현재 위치">
+          <Link href="/">홈</Link> <span>/</span> 카테고리
+        </nav>
+        <h1 className="page-title">{cat.name}</h1>
+        <p className="muted">{cat.description}</p>
+        <CategoryChips active={cat.slug} />
       </div>
       {posts.length ? (
-        <div className="grid">
+        <div className="grid" style={{ marginTop: 40 }}>
           {posts.map((p) => (
             <PostCard key={p.slug} post={p} />
           ))}
