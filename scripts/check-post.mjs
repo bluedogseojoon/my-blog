@@ -8,6 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { marked } from "marked";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const POSTS_DIR = path.join(ROOT, "content/posts");
@@ -52,6 +53,14 @@ function check(file) {
   // 빈칸이 남아 있는지 점검
   for (const mark of PLACEHOLDERS) {
     if (raw.includes(mark)) errors.push(`"${mark}" 빈칸이 아직 남아 있어요. 직접 채워 주세요`);
+  }
+
+  // 굵게(**) 표시가 글자 그대로 보이는지 점검
+  // 예: **"인용"**예요 처럼 따옴표·괄호로 끝나는 굵은 글씨 바로 뒤에 글자가 붙으면 별표가 그대로 보여요.
+  for (const line of marked.parse(content).split("\n")) {
+    const text = line.replace(/<[^>]+>/g, "");
+    if (text.includes("**"))
+      errors.push(`별표(**)가 그대로 보여요: "${text.trim().slice(0, 40)}…" → 따옴표·괄호는 별표 바깥으로 빼 주세요 (예: "**강조**"예요)`);
   }
 
   // 이미지 점검: 파일이 있는지, 설명(alt)이 있는지
