@@ -1,0 +1,60 @@
+# 휴대폰 GitHub 앱에서 "New issue → 새 글감"을 누르면 나오는 양식이에요.
+# 여기 적어 두면 Claude가 밤사이 초안을 만들어 PR로 올려 둬요.
+name: 새 글감
+description: 블로그에 쓸 주제를 적어 두면 Claude가 밤사이 초안을 만들어요
+title: "글감: "
+labels: ["글감"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        생각나는 것만 적어도 괜찮아요. 비어 있는 칸은 초안에 빈칸으로 남겨 두고 알려 드려요.
+        ⚠️ 이 저장소는 공개라서 여기 적은 내용과 사진은 누구나 볼 수 있어요. 아이 얼굴이 나온 사진은 피해 주세요.
+  - type: input
+    id: topic
+    attributes:
+      label: 주제
+      placeholder: "예: 아기 겨울 방한 커버 고르는 법"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 카테고리
+      options:
+        - 육아
+        - 여행
+        - 생활 정보
+        - 디지털 꿀팁
+        - 돈 공부
+    validations:
+      required: true
+  - type: textarea
+    id: products
+    attributes:
+      label: 상품 링크
+      description: 쿠팡파트너스나 네이버 쇼핑 커넥트 링크를 한 줄에 하나씩 적어요. 상품 이름도 같이 적으면 좋아요.
+      placeholder: |
+        유모차 방한 커버 https://link.coupang.com/a/...
+        아기띠 워머 https://naver.me/...
+  - type: textarea
+    id: review
+    attributes:
+      label: 내 후기
+      description: 직접 써 보거나 겪은 이야기를 말하듯이 편하게 적어요. 아이 개월 수도 적어 주면 좋아요.
+      placeholder: "예: 17개월, 첫날은 답답해했는데 바람 부는 날 확실히 덜 울었어요"
+  - type: textarea
+    id: photos
+    attributes:
+      label: 사진
+      description: 사진을 끌어다 놓거나 첨부해요. 빼고 싶은 물건이 있으면 같이 적어 주세요.
+  - type: input
+    id: date
+    attributes:
+      label: 발행 희망일 (선택)
+      placeholder: "예: 2026-11-05 (비워 두면 Merge하는 날 바로 발행)"
+  - type: textarea
+    id: memo
+    attributes:
+      label: 메모 (선택)
+      description: 꼭 넣고 싶은 내용, 빼고 싶은 내용, 참고할 링크 등
