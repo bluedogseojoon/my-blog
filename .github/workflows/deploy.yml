@@ -44,3 +44,21 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # 사이트가 올라간 뒤, 새로 올라간 글을 네이버·빙에 바로 알려요. (실패해도 사이트에는 영향 없어요)
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/indexnow.mjs ${{ github.event.before || 'all' }} ${{ github.sha }}
+        env:
+          NEXT_PUBLIC_SITE_URL: https://bluedogseojoon.github.io/my-blog

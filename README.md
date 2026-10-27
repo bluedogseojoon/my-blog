@@ -68,8 +68,14 @@ Claude Code에서 이 저장소를 열고 **"새 글 써 줘: 주제"** 라고 �
 | `scripts/make-images.mjs` | 표지·정보 카드 이미지 만들기 (`npm run images -- content/images/글주소.json`) |
 | `scripts/check-post.mjs` | 발행 전 점검 (`npm run check`) |
 | `.github/workflows/check.yml` | PR이 올라오면 자동으로 점검 |
+| `scripts/indexnow.mjs` | 글이 발행되면 네이버·빙에 새 글을 자동으로 알려요 (IndexNow) |
 
 점검에서 잡아 주는 것: 비어 있는 쿠팡 링크, 남아 있는 `[내 후기]` 빈칸, 없는 이미지 파일, 이미지 설명(alt) 누락, 없는 글로 가는 링크, 잘못된 카테고리.
+
+### 검색엔진에 새 글 알리기
+
+- **네이버·빙:** 글이 발행되면 자동으로 알려요(IndexNow). 따로 할 일이 없어요. 예전 글까지 한꺼번에 알리고 싶으면 **Actions → Deploy to GitHub Pages → Run workflow**를 눌러요.
+- **구글:** 서치콘솔에 `sitemap.xml`을 한 번만 제출해 두면 알아서 찾아와요. 빨리 올리고 싶은 글만 서치콘솔 **URL 검사 → 색인 생성 요청**을 눌러요.
 
 ## 이미 들어 있는 SEO 기능
 
