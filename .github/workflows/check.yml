@@ -1,0 +1,27 @@
+# 새 글을 PR로 올리면 빠진 것이 없는지 자동으로 점검해요.
+# 빈칸([내 후기] 등)이나 비어 있는 쿠팡 링크가 있으면 빨간 X가 떠요.
+name: Check posts
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+        env:
+          STATIC_EXPORT: "1"
+          NEXT_PUBLIC_BASE_PATH: /my-blog
+          NEXT_PUBLIC_SITE_URL: https://bluedogseojoon.github.io/my-blog

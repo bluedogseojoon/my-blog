@@ -52,6 +52,25 @@ products:
 
 4. GitHub에 올리면 Vercel이 자동으로 사이트를 새로 만들어요.
 
+## Claude로 새 글 자동으로 만들기
+
+Claude Code에서 이 저장소를 열고 **"새 글 써 줘: 주제"** 라고 말하면 돼요. Claude가 아래 순서로 진행해요.
+
+1. 주제, 쿠팡파트너스 링크, 직접 써 본 경험을 물어봐요.
+2. 글 초안(`content/posts/`)과 표지·정보 카드 이미지를 만들어요.
+3. 빠진 게 없는지 점검하고, 검토용 PR을 올려요.
+4. PR을 열어 읽어 보고 **Merge**를 누르면 사이트에 발행돼요.
+
+| 파일 | 하는 일 |
+| --- | --- |
+| `CLAUDE.md` | Claude가 글 쓸 때 지키는 규칙 (말투, 구조, 검색, 쿠팡) |
+| `.claude/skills/new-post/SKILL.md` | 새 글 만드는 순서 |
+| `scripts/make-images.mjs` | 표지·정보 카드 이미지 만들기 (`npm run images -- content/images/글주소.json`) |
+| `scripts/check-post.mjs` | 발행 전 점검 (`npm run check`) |
+| `.github/workflows/check.yml` | PR이 올라오면 자동으로 점검 |
+
+점검에서 잡아 주는 것: 비어 있는 쿠팡 링크, 남아 있는 `[내 후기]` 빈칸, 없는 이미지 파일, 이미지 설명(alt) 누락, 없는 글로 가는 링크, 잘못된 카테고리.
+
 ## 이미 들어 있는 SEO 기능
 
 - 페이지마다 제목, 설명, 대표 주소(canonical), 오픈그래프(카톡/SNS 미리보기)
