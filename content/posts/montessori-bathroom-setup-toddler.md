@@ -28,13 +28,8 @@ products:
     store: naver
   - name: "유아 세면대 수전 연장기"
     note: "물줄기를 아이 손 앞까지 당겨 줘요"
-    price: "1만원 이하"
-    url: ""
-    store: coupang
-  - name: "접착식 낮은 수건 고리"
-    note: "아이 어깨 높이에 붙여 혼자 수건 걸기"
-    url: ""
-    store: coupang
+    url: "https://naver.me/FLEtyUJN"
+    store: naver
 ---
 
 **결론부터 말하면, 욕실 몬테소리 환경은 '아이 키에 맞추고, 물건은 줄이는 것' 이 두 가지가 전부예요.** 발판으로 세면대 높이를 맞추고, 손 씻기·양치·수건·거울 네 구역에 아이 물건을 딱 하나씩만 두면 아이가 혼자 할 수 있는 일이 확 늘어나요.
