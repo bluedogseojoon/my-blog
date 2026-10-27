@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "check": "node scripts/check-post.mjs",
+    "images": "node scripts/make-images.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
