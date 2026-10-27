@@ -1,0 +1,44 @@
+{
+  "slug": "montessori-bathroom-setup-toddler",
+  "category": "parenting",
+  "cover": {
+    "label": "육아 · 몬테소리",
+    "lines": ["아이 혼자 씻는", "**욕실 몬테소리** 환경"],
+    "sub": "4가지 구역과 월령별 시작 순서",
+    "art": "<svg width='340' height='340' viewBox='0 0 340 340'><circle cx='170' cy='170' r='155' fill='#fff' opacity='.7'/><rect x='95' y='60' width='150' height='105' rx='18' fill='#dfeef6' stroke='#c9a77a' stroke-width='6'/><circle cx='150' cy='100' r='10' fill='#fff' opacity='.9'/><path d='M80 185 h180 a10 10 0 0 1 10 10 v10 a40 40 0 0 1 -40 40 h-120 a40 40 0 0 1 -40 -40 v-10 a10 10 0 0 1 10 -10z' fill='#fff' stroke='#c9a77a' stroke-width='6'/><path d='M170 185 v-14 h22' fill='none' stroke='#a35f00' stroke-width='8' stroke-linecap='round'/><rect x='110' y='255' width='120' height='22' rx='6' fill='#a35f00'/><rect x='125' y='277' width='90' height='22' rx='6' fill='#c98a3a'/><rect x='262' y='200' width='12' height='60' rx='6' fill='#7fb3a0'/><circle cx='268' cy='196' r='10' fill='#7fb3a0'/></svg>"
+  },
+  "cards": [
+    {
+      "file": "zones",
+      "title": "아이 혼자 쓰는 욕실, **4가지 구역**",
+      "sub": "아이 키에 맞추고, 물건은 하나씩만",
+      "items": [
+        { "title": "손 씻기", "sub": "발판부터 시작", "bullets": ["흔들림 없는 발판", "수전 연장기", "작은 펌프 비누"] },
+        { "title": "양치", "sub": "아이 물건은 하나씩", "bullets": ["칫솔 1개, 컵 1개", "낮은 칫솔 꽂이", "마무리는 어른이"] },
+        { "title": "수건·옷", "sub": "걸고 넣는 연습", "bullets": ["어깨 높이 고리", "작은 핸드타월", "낮은 옷 바구니"] },
+        { "title": "거울", "sub": "아이 눈높이에", "bullets": ["깨지지 않는 거울", "입 닦기 연습", "머리 빗기"] }
+      ]
+    },
+    {
+      "file": "ages",
+      "title": "월령별로 **하나씩** 늘려요",
+      "sub": "새 일이 익숙해지면 1~2주 뒤 다음 일",
+      "items": [
+        { "title": "돌~18개월", "sub": "올라서고 씻기", "bullets": ["발판 올라서기", "같이 손 씻기", "뒤에서 받쳐 주기"] },
+        { "title": "18개월~2세", "sub": "순서 익히기", "bullets": ["물 틀고 잠그기", "수건 걸기", "짧은 말로 순서"] },
+        { "title": "2세 이후", "sub": "혼자 해 보기", "bullets": ["혼자 양치 시작", "옷 바구니 넣기", "어른이 마무리"] }
+      ]
+    },
+    {
+      "file": "safety",
+      "title": "욕실 안전, **이 4가지**는 꼭",
+      "sub": "스스로 하게 두되, 혼자 두지는 않아요",
+      "items": [
+        { "title": "미끄럼 방지", "sub": "발판 아래까지", "bullets": ["욕실 바닥 매트", "발판 고무 받침"] },
+        { "title": "온수 온도", "sub": "낮게 맞추기", "bullets": ["온수 온도 낮추기", "찬물 쪽 연습"] },
+        { "title": "세제·약", "sub": "손 안 닿게", "bullets": ["높은 곳에 두기", "잠금장치 쓰기"] },
+        { "title": "욕조 물", "sub": "바로 비우기", "bullets": ["목욕 후 물 빼기", "어른이 늘 옆에"] }
+      ]
+    }
+  ]
+}
