@@ -16,7 +16,25 @@ const CATEGORIES = ["travel", "parenting", "digital", "life", "money"];
 // 글에 남아 있으면 안 되는 빈칸 표시들이에요.
 const PLACEHOLDERS = ["[내 후기", "[쿠팡링크", "[사진", "[링크", "TODO", "XXX"];
 
-const allSlugs = new Set(fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md")).map((f) => f.replace(/\.md$/, "")));
+// AI가 쓴 글에 자주 나오는 표현이에요. [찾을 표현, 안내 문구, 이만큼까지는 괜찮음]
+// 출처: https://github.com/epoko77-ai/im-not-ai (MIT). 자세한 건 .claude/skills/new-post/SKILL.md "AI 티 빼기"
+const AI_TELLS = [
+  [/결론적으로|요약하자면|정리하자면/g, '"결론적으로·정리하자면"', 0],
+  [/시사하는 바|주목할 만[한하]|매우 중요[한해합]/g, '"시사하는 바·주목할 만한·매우 중요한"', 0],
+  [/에 있어(?:서)?(?=[\s,])/g, '"~에 있어(서)"', 0],
+  [/되어진|지게 된/g, '"~되어진다·~지게 된다"', 0],
+  [/에 의해/g, '"~에 의해"', 0],
+  [/단순한? [^\s]+(을|를) 넘어/g, '"단순한 X를 넘어"', 0],
+  [/(할|될|일) 때[예입]니?[다요]/g, '"~할 때예요"', 0],
+  [/하는 이유[예입]니?[다요]/g, '"~하는 이유예요"', 0],
+  [/(중요한|필요한|핵심인?) (것|건)[은는]? /g, '"중요한 것은"', 0],
+  [/을 통해|를 통해/g, '"~을 통해"', 2],
+  [/에 대해서?/g, '"~에 대해"', 3],
+  [/(?<![가-힣])(그리고|또한|따라서|하지만|그러나),/g, '문장 앞 접속사 뒤 쉼표', 2],
+  [/[가-힣](며|면서|지만|아서|어서),/g, '연결어미 뒤 쉼표("~며," "~지만,")', 5],
+];
+
+const allSlugs =new Set(fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md")).map((f) => f.replace(/\.md$/, "")));
 const pageSlugs = new Set(fs.readdirSync(path.join(ROOT, "content/pages")).map((f) => f.replace(/\.md$/, "")));
 
 function check(file) {
@@ -61,6 +79,13 @@ function check(file) {
     const text = line.replace(/<[^>]+>/g, "");
     if (text.includes("**"))
       errors.push(`별표(**)가 그대로 보여요: "${text.trim().slice(0, 40)}…" → 따옴표·괄호는 별표 바깥으로 빼 주세요 (예: "**강조**"예요)`);
+  }
+
+  // AI 티 나는 표현 점검 (im-not-ai 규칙 중 흔한 것만). 경고만 해요.
+  const prose = content.replace(/^\s*(\||!\[|<).*$/gm, "");
+  for (const [re, label, max] of AI_TELLS) {
+    const n = (prose.match(re) ?? []).length;
+    if (n > max) warns.push(`AI 티: ${label} ${n}번 → 자연스럽게 바꿀 수 있는지 봐 주세요`);
   }
 
   // 이미지 점검: 파일이 있는지, 설명(alt)이 있는지
