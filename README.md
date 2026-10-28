@@ -68,9 +68,20 @@ Claude Code에서 이 저장소를 열고 **"새 글 써 줘: 주제"** 라고 �
 | `scripts/make-images.mjs` | 표지·정보 카드 이미지 만들기 (`npm run images -- content/images/글주소.json`) |
 | `scripts/check-post.mjs` | 발행 전 점검 (`npm run check`) |
 | `.github/workflows/check.yml` | PR이 올라오면 자동으로 점검 |
+| `.claude/skills/nightly-drafts/SKILL.md` | 밤마다 글감 이슈를 초안 PR로 만드는 순서 |
+| `docs/개선기록.md` | 꼬꼬비가 지적한 내용 기록 (두 번 나오면 규칙으로) |
 | `scripts/indexnow.mjs` | 글이 발행되면 네이버·빙에 새 글을 자동으로 알려요 (IndexNow) |
 
 점검에서 잡아 주는 것: 비어 있는 쿠팡 링크, 남아 있는 `[내 후기]` 빈칸, 없는 이미지 파일, 이미지 설명(alt) 누락, 없는 글로 가는 링크, 잘못된 카테고리.
+
+### 휴대폰으로 글감 적어 두기 (밤사이 자동 초안)
+
+1. 휴대폰 GitHub 앱 → 이 저장소 → **Issues → New issue → 새 글감**을 눌러요.
+2. 주제, 상품 링크, 내 후기, 사진을 생각나는 만큼 적고 저장해요.
+3. 매일 밤 Claude가 글감을 읽고 초안 PR을 만들어 둬요. (하룻밤 최대 3개)
+4. 다음 날 PR을 읽고 **Merge**를 누르면 발행되고, 글감 이슈도 자동으로 닫혀요.
+
+⚠️ 저장소가 공개라서 이슈 내용과 사진도 공개예요. 아이 얼굴이 나온 사진은 피해 주세요.
 
 ### 검색엔진에 새 글 알리기
 
