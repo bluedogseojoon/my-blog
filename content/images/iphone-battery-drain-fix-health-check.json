@@ -1,0 +1,34 @@
+{
+  "slug": "iphone-battery-drain-fix-health-check",
+  "category": "digital",
+  "cover": {
+    "label": "디지털 · 아이폰",
+    "lines": ["아이폰 배터리", "**빨리 닳을 때**"],
+    "sub": "원인 확인부터 교체 시기까지",
+    "art": "<svg width='340' height='340' viewBox='0 0 340 340'><circle cx='170' cy='170' r='155' fill='#fff' opacity='.7'/><rect x='105' y='50' width='130' height='240' rx='26' fill='#fff' stroke='#2050c0' stroke-width='8'/><rect x='145' y='64' width='50' height='10' rx='5' fill='#2050c0' opacity='.35'/><rect x='135' y='110' width='70' height='130' rx='10' fill='none' stroke='#2050c0' stroke-width='7'/><rect x='155' y='98' width='30' height='12' rx='4' fill='#2050c0'/><rect x='143' y='200' width='54' height='32' rx='5' fill='#e8a33a'/><path d='M176 140 l-14 30 h14 l-8 26' fill='none' stroke='#2050c0' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+  },
+  "cards": [
+    {
+      "file": "steps",
+      "title": "배터리 빨리 닳을 때, **이 순서로**",
+      "sub": "돈 안 드는 것부터 하나씩",
+      "items": [
+        { "title": "원인 확인", "sub": "설정 > 배터리", "bullets": ["많이 쓰는 앱 찾기", "뒤에서 쓴 시간"] },
+        { "title": "설정 점검", "sub": "체감 큰 것부터", "bullets": ["밝기·자동 잠금", "새로 고침 줄이기", "위치 서비스"] },
+        { "title": "성능 확인", "sub": "배터리 성능 상태", "bullets": ["최대 용량 확인", "충전 사이클 수"] },
+        { "title": "교체 판단", "sub": "신호가 보이면", "bullets": ["'서비스' 안내", "80% 근처", "갑자기 꺼짐"] }
+      ]
+    },
+    {
+      "file": "health",
+      "title": "배터리 성능, **여기서** 확인해요",
+      "sub": "설정 > 배터리 > 배터리 성능 상태",
+      "numbered": false,
+      "items": [
+        { "title": "최대 용량", "sub": "새것일 때 100%", "bullets": ["80% 근처면 빨리 닳음", "낮을수록 짧게 버텨요"] },
+        { "title": "사이클 수", "sub": "아이폰 15 이후", "bullets": ["0→100% 쓴 양이 1회", "설정 > 일반 > 정보"] },
+        { "title": "교체 신호", "sub": "이럴 땐 센터로", "bullets": ["'서비스' 안내", "갑자기 꺼짐", "뒷면 부풂"] }
+      ]
+    }
+  ]
+}
