@@ -110,6 +110,83 @@ ${card.sub ? `<p class="sub">${rich(card.sub)}</p>` : ""}
 </body></html>`;
 }
 
+// 아이폰 설정 화면 그림 + 왼쪽 따라 하기 순서 (아이폰 글용)
+// 화면 글자는 실제 iOS 메뉴 이름 그대로 적어요.
+function screenHtml(sc, c) {
+  const ph = sc.phone;
+  const toggle = (on) =>
+    `<span class="tg${on ? " on" : ""}"><i></i></span>`;
+  const row = (r) => `<div class="row${r.highlight ? " hl" : ""}">
+      ${r.icon ? `<span class="ic" style="background:${r.iconColor || "#8e8e93"}">${esc(r.icon)}</span>` : ""}
+      <span class="rt${r.blue ? " blue" : ""}">${esc(r.text)}</span>
+      ${r.value ? `<span class="rv">${esc(r.value)}</span>` : ""}
+      ${r.toggle === undefined ? "" : toggle(r.toggle)}
+      ${r.chevron ? `<span class="chev">›</span>` : ""}
+    </div>`;
+  const groups = (ph.groups || [])
+    .map(
+      (g) => `${g.header ? `<p class="gh">${esc(g.header)}</p>` : ""}
+    <div class="grp">${g.rows.map(row).join("")}</div>
+    ${g.note ? `<p class="gn">${esc(g.note)}</p>` : ""}`
+    )
+    .join("");
+  const big = ph.big
+    ? `<div class="big"><b>${esc(ph.big.value)}</b><span>${esc(ph.big.label)}</span></div>`
+    : "";
+  const steps = (sc.steps || [])
+    .map((st, i) => `<li><span class="n">${i + 1}</span><span>${rich(st)}</span></li>`)
+    .join("");
+  return `<!doctype html><html><head><meta charset="utf-8"><style>${baseCss(c)}
+body{height:1000px;background:${c.bg};position:relative;overflow:hidden}
+em{color:#e5483a}
+.left{position:absolute;left:90px;top:0;bottom:0;width:560px;display:flex;flex-direction:column;justify-content:center}
+.label{align-self:flex-start;background:#fff;color:${c.point};font-weight:700;font-size:26px;padding:12px 24px;border-radius:999px;margin-bottom:34px}
+h2{font-size:58px;font-weight:700;line-height:1.22;letter-spacing:-1.5px}
+h2 em{color:${c.point}}
+ol{list-style:none;margin-top:44px}
+li{display:flex;gap:16px;align-items:flex-start;font-size:28px;line-height:1.4;color:#3a3a40;margin-top:18px}
+.n{flex:none;width:40px;height:40px;border-radius:50%;background:${c.point};color:#fff;font-weight:700;font-size:21px;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+li em{font-weight:700}
+.note{position:absolute;left:90px;bottom:34px;font-size:18px;color:#8a8f9c}
+.phone{position:absolute;right:80px;top:50%;transform:translateY(-50%);width:440px;height:900px;background:#141416;border-radius:72px;padding:14px;box-shadow:0 30px 60px rgba(30,40,80,.18)}
+.scr{width:100%;height:100%;background:#f2f2f7;border-radius:60px;overflow:hidden;position:relative}
+.sb{height:62px;display:flex;align-items:center;justify-content:space-between;padding:8px 38px 0 46px;font-weight:700;font-size:19px}
+.island{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:124px;height:36px;background:#000;border-radius:20px}
+.bat{width:30px;height:15px;border:2px solid #1d1d1f;border-radius:5px;padding:1.5px}.bat i{display:block;height:100%;width:80%;background:#1d1d1f;border-radius:2px}
+.nav{position:relative;height:52px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:19px}
+.back{position:absolute;left:18px;color:#007aff;font-weight:400;font-size:18px}
+.big{margin:10px 18px 4px;background:#fff;border-radius:14px;padding:18px 18px;display:flex;flex-direction:column}
+.big b{font-size:40px;letter-spacing:-1px}.big span{font-size:15px;color:#6e6e73;margin-top:2px}
+.gh{font-size:14px;color:#6e6e73;margin:22px 34px 8px}
+.grp{background:#fff;border-radius:14px;margin:0 18px}
+.grp+.grp,.gn+.grp{margin-top:28px}
+.row{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 16px;border-bottom:1px solid #e5e5ea;font-size:17px}
+.row:last-child{border-bottom:0}
+.row.hl{outline:3px solid #e5483a;outline-offset:-2px;border-radius:12px;background:#fff}
+.ic{flex:none;width:30px;height:30px;border-radius:8px;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center}
+.rt{flex:1}.rt.blue{color:#007aff}
+.rv{color:#8a8a8e}
+.chev{color:#c4c4c7;font-size:26px;line-height:1;margin-top:-3px}
+.tg{flex:none;width:56px;height:34px;border-radius:17px;background:#e9e9eb;position:relative}
+.tg i{position:absolute;top:3px;left:3px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+.tg.on{background:#34c759}.tg.on i{left:25px}
+.gn{font-size:13.5px;line-height:1.5;color:#6e6e73;margin:8px 34px 0}
+</style></head><body>
+<div class="left">
+  <div class="label">${esc(sc.label)}</div>
+  <h2>${sc.title.map(rich).join("<br>")}</h2>
+  <ol>${steps}</ol>
+</div>
+<p class="note">${esc(sc.note || "화면 그림은 이해를 돕기 위한 예시예요. iOS 버전에 따라 조금 달라요.")}</p>
+<div class="phone"><div class="scr">
+  <div class="island"></div>
+  <div class="sb"><span>9:41</span><span class="bat"><i></i></span></div>
+  <div class="nav">${ph.back ? `<span class="back">‹ ${esc(ph.back)}</span>` : ""}${esc(ph.title)}</div>
+  ${big}${groups}
+</div></div>
+</body></html>`;
+}
+
 async function main() {
   const specPath = process.argv[2];
   if (!specPath) {
@@ -147,6 +224,13 @@ async function main() {
     const file = path.join(outDir, `${card.file}.png`);
     await page.screenshot({ path: file, fullPage: true });
     console.log(`✓ ${card.file}.png`);
+  }
+  for (const sc of spec.screens || []) {
+    await page.setViewportSize({ width: 1200, height: 1000 });
+    await page.setContent(screenHtml(sc, c), { waitUntil: "load" });
+    await page.evaluate(() => document.fonts.ready);
+    await page.screenshot({ path: path.join(outDir, `${sc.file}.png`) });
+    console.log(`✓ ${sc.file}.png`);
   }
   await browser.close();
   console.log(`→ public/images/posts/${spec.slug}/ 에 저장했어요.`);
