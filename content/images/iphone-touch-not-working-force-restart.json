@@ -1,0 +1,88 @@
+{
+  "slug": "iphone-touch-not-working-force-restart",
+  "category": "digital",
+  "cover": {
+    "label": "디지털 · 아이폰",
+    "lines": ["아이폰 터치 안 될 때", "**강제 재시동** 방법"],
+    "sub": "모델별 버튼 순서와 해결 순서",
+    "art": "<svg width='340' height='340' viewBox='0 0 340 340'><circle cx='170' cy='170' r='155' fill='#fff' opacity='.7'/><rect x='110' y='50' width='120' height='240' rx='24' fill='#fff' stroke='#2050c0' stroke-width='8'/><rect x='146' y='64' width='48' height='10' rx='5' fill='#2050c0' opacity='.35'/><rect x='96' y='100' width='14' height='34' rx='5' fill='#e8a33a'/><rect x='96' y='146' width='14' height='34' rx='5' fill='#e8a33a'/><rect x='230' y='118' width='14' height='52' rx='5' fill='#2050c0'/><path d='M170 140 a34 34 0 1 1 -24 10' fill='none' stroke='#2050c0' stroke-width='8' stroke-linecap='round'/><path d='M140 132 l6 18 l18 -6' fill='none' stroke='#2050c0' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+  },
+  "cards": [
+    {
+      "file": "order",
+      "title": "터치 안 될 때, **이 순서로**",
+      "sub": "위에서부터 하나씩 해 봐요",
+      "items": [
+        { "title": "강제 재시동", "sub": "버튼만으로", "bullets": ["데이터는 그대로", "가장 먼저 해 보기"] },
+        { "title": "빼고 닦기", "sub": "외부 원인 확인", "bullets": ["충전 케이블 빼기", "물기 닦기", "케이스·필름 빼기"] },
+        { "title": "업데이트", "sub": "다시 되면", "bullets": ["최신 iOS 확인", "자동 업데이트"] },
+        { "title": "충전·서비스", "sub": "안 켜지면", "bullets": ["1시간 충전", "그래도 안 되면 센터"] }
+      ]
+    },
+    {
+      "file": "buttons",
+      "title": "강제 재시동, **모델별 버튼**",
+      "sub": "측면 버튼은 Apple 로고가 보일 때까지",
+      "numbered": false,
+      "items": [
+        { "title": "아이폰 8 이후", "sub": "SE 2·3세대 포함", "bullets": ["① 음량 높이기 톡", "② 음량 낮추기 톡", "③ 측면 버튼 길게"] },
+        { "title": "아이폰 7", "sub": "7 Plus 포함", "bullets": ["측면 + 음량 낮추기", "동시에 길게"] },
+        { "title": "6s 이전", "sub": "홈 버튼 모델", "bullets": ["홈 + 측면(상단)", "동시에 약 10초"] }
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "file": "screen-update",
+      "label": "3단계 · 업데이트",
+      "title": ["다시 되면", "**최신 iOS** 확인"],
+      "steps": ["설정 → 일반", "**소프트웨어 업데이트** 누르기", "**자동 업데이트**도 켜 두기"],
+      "phone": {
+        "back": "설정",
+        "title": "일반",
+        "groups": [
+          { "rows": [
+            { "text": "정보", "chevron": true },
+            { "text": "소프트웨어 업데이트", "chevron": true, "highlight": true }
+          ] },
+          { "rows": [
+            { "text": "iPhone 저장 공간", "chevron": true },
+            { "text": "백그라운드 앱 새로 고침", "chevron": true }
+          ] },
+          { "rows": [
+            { "text": "전송 또는 iPhone 재설정", "chevron": true }
+          ] },
+          { "rows": [
+            { "text": "시스템 종료", "blue": true }
+          ] }
+        ]
+      }
+    },
+    {
+      "file": "screen-shutdown",
+      "label": "4단계 · 버튼 고장",
+      "title": ["버튼 없이", "**화면으로 끄기**"],
+      "steps": ["설정 → 일반", "맨 아래 **시스템 종료** 누르기", "다시 켤 땐 충전기 꽂기"],
+      "phone": {
+        "back": "설정",
+        "title": "일반",
+        "groups": [
+          { "rows": [
+            { "text": "정보", "chevron": true },
+            { "text": "소프트웨어 업데이트", "chevron": true }
+          ] },
+          { "rows": [
+            { "text": "iPhone 저장 공간", "chevron": true },
+            { "text": "백그라운드 앱 새로 고침", "chevron": true }
+          ] },
+          { "rows": [
+            { "text": "전송 또는 iPhone 재설정", "chevron": true }
+          ] },
+          { "rows": [
+            { "text": "시스템 종료", "blue": true, "highlight": true }
+          ] }
+        ]
+      }
+    }
+  ]
+}
