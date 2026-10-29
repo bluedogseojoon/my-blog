@@ -19,7 +19,7 @@ description: 밤마다 정해진 시간에 실행돼요. 꼬꼬비가 GitHub 이
 ## 1. 처리할 글감 찾기
 
 ```bash
-gh api "repos/bluedogseojoon/my-blog/issues?labels=글감&state=open&per_page=20" \
+gh api "repos/bluedogseojoon/my-blog/issues?labels=%EA%B8%80%EA%B0%90&state=open&per_page=20" \
   --jq '.[] | select(.pull_request == null) | select(.user.login == "bluedogseojoon") | select([.labels[].name] | index("초안완료") | not) | {number, title}'
 ```
 
