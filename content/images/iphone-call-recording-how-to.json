@@ -1,0 +1,128 @@
+{
+  "slug": "iphone-call-recording-how-to",
+  "category": "digital",
+  "cover": {
+    "label": "디지털 · 아이폰",
+    "lines": [
+      "앱 없이 하는",
+      "**아이폰 통화녹음**"
+    ],
+    "sub": "녹음 버튼 위치와 저장 위치",
+    "art": "<svg width='340' height='340' viewBox='0 0 340 340'><circle cx='170' cy='170' r='155' fill='#fff' opacity='.7'/><rect x='110' y='50' width='120' height='240' rx='24' fill='#fff' stroke='#2050c0' stroke-width='8'/><rect x='146' y='64' width='48' height='10' rx='5' fill='#2050c0' opacity='.35'/><path d='M140 130 c0 40 20 60 60 60 l10 -18 l-22 -12 l-10 10 c-12 -6 -18 -12 -24 -24 l10 -10 l-12 -22z' fill='#2050c0'/><circle cx='170' cy='238' r='18' fill='#e5483a'/><circle cx='170' cy='238' r='26' fill='none' stroke='#e5483a' stroke-width='4' opacity='.4'/></svg>"
+  },
+  "cards": [
+    {
+      "file": "steps",
+      "title": "아이폰 통화녹음, **이 순서로**",
+      "sub": "iOS 18.1 이상이면 앱 없이 돼요",
+      "items": [
+        {
+          "title": "업데이트",
+          "sub": "iOS 18.1 이상",
+          "bullets": [
+            "소프트웨어 업데이트",
+            "최신 버전 권장"
+          ]
+        },
+        {
+          "title": "통화 중 녹음",
+          "sub": "녹음 버튼 누르기",
+          "bullets": [
+            "iOS 26은 더 보기",
+            "상대방도 안내 들음"
+          ]
+        },
+        {
+          "title": "메모 앱에서",
+          "sub": "자동 저장",
+          "bullets": [
+            "통화 녹음 폴더",
+            "전사문·공유"
+          ]
+        }
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "file": "screen-notes",
+      "label": "저장 위치",
+      "title": [
+        "녹음 파일은",
+        "**메모 앱**에 있어요"
+      ],
+      "steps": [
+        "메모 앱 열기",
+        "폴더에서 **통화 녹음** 누르기",
+        "재생 버튼으로 듣기"
+      ],
+      "phone": {
+        "title": "폴더",
+        "groups": [
+          {
+            "header": "iCloud",
+            "rows": [
+              {
+                "text": "모든 iCloud",
+                "icon": "▤",
+                "iconColor": "#f5b301",
+                "value": "128",
+                "chevron": true
+              },
+              {
+                "text": "메모",
+                "icon": "▤",
+                "iconColor": "#f5b301",
+                "value": "96",
+                "chevron": true
+              },
+              {
+                "text": "통화 녹음",
+                "icon": "●",
+                "iconColor": "#e5483a",
+                "value": "12",
+                "chevron": true,
+                "highlight": true
+              },
+              {
+                "text": "최근 삭제된 항목",
+                "icon": "🗑",
+                "iconColor": "#8e8e93",
+                "value": "3",
+                "chevron": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file": "screen-settings",
+      "label": "켜고 끄기",
+      "title": [
+        "녹음 버튼이",
+        "**안 보이면** 여기"
+      ],
+      "steps": [
+        "설정 → 앱 → 전화",
+        "**통화 녹음** 누르기",
+        "스위치를 켜거나 끄기"
+      ],
+      "phone": {
+        "back": "전화",
+        "title": "통화 녹음",
+        "groups": [
+          {
+            "rows": [
+              {
+                "text": "통화 녹음",
+                "toggle": true,
+                "highlight": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
