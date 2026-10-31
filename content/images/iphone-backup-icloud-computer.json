@@ -1,0 +1,163 @@
+{
+  "slug": "iphone-backup-icloud-computer",
+  "category": "digital",
+  "cover": {
+    "label": "디지털 · 아이폰",
+    "lines": [
+      "사진 날리기 전에",
+      "**아이폰 백업** 방법"
+    ],
+    "sub": "아이클라우드·컴퓨터 백업 순서",
+    "art": "<svg width='340' height='340' viewBox='0 0 340 340'><circle cx='170' cy='170' r='155' fill='#fff' opacity='.7'/><rect x='70' y='90' width='110' height='200' rx='22' fill='#fff' stroke='#2050c0' stroke-width='8'/><rect x='104' y='104' width='42' height='9' rx='4.5' fill='#2050c0' opacity='.35'/><path d='M200 150 a36 36 0 0 1 70 6 a26 26 0 0 1 -4 52 h-62 a30 30 0 0 1 -4 -58z' fill='#2050c0' opacity='.9'/><path d='M234 196 v-30 m-12 12 l12 -12 l12 12' fill='none' stroke='#fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/><path d='M125 160 v50 m-16 -16 l16 16 l16 -16' fill='none' stroke='#e8a33a' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+  },
+  "cards": [
+    {
+      "file": "compare",
+      "title": "아이폰 백업, **두 가지 방법**",
+      "sub": "평소엔 아이클라우드, 공간이 모자라면 컴퓨터",
+      "numbered": false,
+      "items": [
+        {
+          "title": "아이클라우드",
+          "sub": "가장 쉬워요",
+          "bullets": [
+            "와이파이로 자동",
+            "무료 5GB",
+            "항상 암호화"
+          ]
+        },
+        {
+          "title": "컴퓨터",
+          "sub": "맥·윈도우",
+          "bullets": [
+            "케이블로 연결",
+            "컴퓨터 공간 사용",
+            "암호화 직접 켜기"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "computer",
+      "title": "컴퓨터 백업, **이 순서로**",
+      "sub": "맥은 Finder, 윈도우는 Apple 기기 앱",
+      "items": [
+        {
+          "title": "연결",
+          "sub": "케이블로",
+          "bullets": [
+            "연결 허용",
+            "기기 선택"
+          ]
+        },
+        {
+          "title": "신뢰",
+          "sub": "양쪽 모두",
+          "bullets": [
+            "신뢰 누르기",
+            "아이폰 암호"
+          ]
+        },
+        {
+          "title": "암호화",
+          "sub": "로컬 백업 암호화",
+          "bullets": [
+            "암호 꼭 적기",
+            "건강 데이터 포함"
+          ]
+        },
+        {
+          "title": "지금 백업",
+          "sub": "끝까지 기다리기",
+          "bullets": [
+            "케이블 빼지 않기"
+          ]
+        }
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "file": "screen-icloud",
+      "label": "1단계 · 위치 찾기",
+      "title": [
+        "백업 메뉴는",
+        "**iCloud** 안에 있어요"
+      ],
+      "steps": [
+        "설정 → 맨 위 **내 이름**",
+        "**iCloud** 누르기",
+        "**iCloud 백업** 누르기"
+      ],
+      "phone": {
+        "back": "Apple 계정",
+        "title": "iCloud",
+        "groups": [
+          {
+            "rows": [
+              {
+                "text": "사진",
+                "icon": "✿",
+                "iconColor": "#f5a623",
+                "chevron": true
+              },
+              {
+                "text": "iCloud Drive",
+                "icon": "☁",
+                "iconColor": "#2f7cf6",
+                "chevron": true
+              }
+            ]
+          },
+          {
+            "rows": [
+              {
+                "text": "iCloud 백업",
+                "icon": "↻",
+                "iconColor": "#34a853",
+                "chevron": true,
+                "highlight": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file": "screen-backup",
+      "label": "2단계 · 켜고 백업",
+      "title": [
+        "자동 백업 켜고",
+        "**지금 백업**까지"
+      ],
+      "steps": [
+        "**이 iPhone 백업** 켜기",
+        "급할 땐 **지금 백업** 누르기",
+        "아래 날짜가 오늘인지 확인"
+      ],
+      "phone": {
+        "back": "iCloud",
+        "title": "iCloud 백업",
+        "groups": [
+          {
+            "rows": [
+              {
+                "text": "이 iPhone 백업",
+                "toggle": true,
+                "highlight": true
+              }
+            ]
+          },
+          {
+            "rows": [
+              {
+                "text": "지금 백업",
+                "blue": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
